@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>経済学ノート | 経済学の勉強サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2e8b57;
+  --green-dark:#1f5e3b;
+  --green-pale:#e6f2ea;
+  --paper:#fbfdfb;
+  --grid:#d6e8dc;
+  --ink:#1d2b24;
+  --muted:#5b6e63;
+  --marker:#fff3a8;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);color:var(--ink);line-height:1.9;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+a{color:var(--green-dark)}
+a:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+header{background:var(--green);color:#fff;border-bottom:4px solid var(--green-dark)}
+.bar{max-width:960px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.08em}
+nav ul{list-style:none;display:flex;gap:6px;flex-wrap:wrap}
+nav a{display:block;padding:6px 14px;color:#fff;text-decoration:none;font-weight:500;border-radius:3px;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.18)}
+nav a[aria-current="page"]{background:#fff;color:var(--green-dark)}
+
+main{max-width:960px;margin:0 auto;padding:0 20px 56px}
+
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center;padding:52px 0 40px}
+.hero h1{font-family:var(--serif);font-size:clamp(1.9rem,4.6vw,2.7rem);line-height:1.5;font-weight:700;color:var(--green-dark);letter-spacing:.04em}
+.hero p{margin-top:18px}
+.hero .meta{margin-top:14px;font-size:.88rem;color:var(--muted)}
+.btns{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:10px 22px;border-radius:3px;text-decoration:none;font-weight:700;font-size:.95rem;border:2px solid var(--green)}
+.btn.main{background:var(--green);color:#fff}
+.btn.main:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.btn.sub{background:var(--paper);color:var(--green-dark)}
+.btn.sub:hover{background:var(--green-pale)}
+.sheet{background:#fff;border:2px solid var(--green);padding:14px 14px 8px;box-shadow:6px 6px 0 var(--green-pale);transform:rotate(1.2deg)}
+.sheet svg{display:block;width:100%;height:auto}
+.sheet figcaption{font-size:.82rem;color:var(--muted);padding:6px 2px;line-height:1.6}
+
+section{margin-top:44px}
+h2{font-family:var(--serif);font-size:1.5rem;color:var(--green-dark);display:flex;align-items:center;gap:12px;margin-bottom:18px}
+h2::before{content:"";width:10px;height:1.5rem;background:var(--green)}
+.marker{background:linear-gradient(transparent 55%,var(--marker) 55%)}
+
+.panel{background:#fff;border:1px solid var(--green);padding:22px 24px}
+.panel h3{font-family:var(--serif);margin-bottom:6px}
+.topics{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.topic{background:#fff;border:1px solid var(--grid);border-left:6px solid var(--green);padding:14px 16px}
+.topic h3{font-family:var(--serif);font-size:1.08rem;margin-bottom:4px}
+.topic p{font-size:.9rem;color:var(--muted);line-height:1.7}
+.topic .st{display:inline-block;margin-top:8px;font-size:.78rem;padding:1px 10px;border:1px solid var(--green);color:var(--green-dark);border-radius:99px}
+.topic .st.now{background:var(--green);color:#fff}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.entry{list-style:none}
+.entry li{padding:10px 0;border-bottom:1px dashed var(--green)}
+.entry li:last-child{border-bottom:none}
+.entry time{display:block;font-size:.8rem;color:var(--muted);font-weight:500}
+.more{display:inline-block;margin-top:10px;font-weight:700;font-size:.92rem}
+
+footer{background:var(--green-dark);color:#dcefe3;text-align:center;padding:22px 20px;font-size:.85rem}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr;padding-top:34px}
+  .sheet{transform:none}
+  .two{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">経済学ノート</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html" aria-current="page">ホーム</a></li>
+        <li><a href="blog.html">勉強ログ</a></li>
+        <li><a href="column.html">コラム</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div>
+      <h1>経済学を、ノートにまとめながら学ぶ。</h1>
+      <p>学生として経済学を勉強している記録サイトです。毎日の進み具合は「勉強ログ」に、まとまった考えやマンガ・イラストは「コラム」に置いています。</p>
+      <p class="meta">わからないところも、そのまま書いていきます。</p>
+      <div class="btns">
+        <a class="btn main" href="blog.html">勉強ログを見る</a>
+        <a class="btn sub" href="column.html">コラムを読む</a>
+      </div>
+    </div>
+    <figure class="sheet">
+      <svg viewBox="0 0 320 250" role="img" aria-label="需要曲線と供給曲線が交わる均衡点のグラフ">
+        <g stroke="#2e8b57" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M40 20 V210 H290"/>
+          <path d="M40 20 l-5 9 M40 20 l5 9 M290 210 l-9 -5 M290 210 l-9 5"/>
+        </g>
+        <path d="M60 50 L260 190" stroke="#1d2b24" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M60 190 L260 50" stroke="#2e8b57" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <g stroke="#5b6e63" stroke-width="1.5" stroke-dasharray="5 4">
+          <path d="M40 120 H160"/><path d="M160 120 V210"/>
+        </g>
+        <circle cx="160" cy="120" r="6" fill="#fff3a8" stroke="#1f5e3b" stroke-width="2"/>
+        <g font-family="Zen Kaku Gothic New,sans-serif" font-size="14" fill="#1d2b24">
+          <text x="28" y="14" text-anchor="end">P</text>
+          <text x="296" y="226">Q</text>
+          <text x="32" y="124" text-anchor="end">P*</text>
+          <text x="160" y="228" text-anchor="middle">Q*</text>
+          <text x="262" y="204">D</text>
+          <text x="262" y="46" fill="#2e8b57" font-weight="700">S</text>
+          <text x="172" y="108" fill="#1f5e3b" font-weight="700">均衡点</text>
+        </g>
+      </svg>
+      <figcaption>最初に描いた、需要と供給のグラフ。</figcaption>
+    </figure>
+  </div>
+
+  <section aria-labelledby="topics">
+    <h2 id="topics">勉強しているテーマ</h2>
+    <div class="topics">
+      <div class="topic">
+        <h3>需要と供給</h3>
+        <p>価格はどう決まるのか。均衡点と、それが動く理由。</p>
+        <span class="st now">勉強中</span>
+      </div>
+      <div class="topic">
+        <h3>機会費用</h3>
+        <p>何かを選ぶとき、あきらめたものの価値を考える。</p>
+        <span class="st now">勉強中</span>
+      </div>
+      <div class="topic">
+        <h3>GDPと物価</h3>
+        <p>国の経済の大きさと、お金の価値の変化。</p>
+        <span class="st">次に読む</span>
+      </div>
+      <div class="topic">
+        <h3>お金と金融</h3>
+        <p>銀行や金利のしくみ、中央銀行の役割。</p>
+        <span class="st">次に読む</span>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="latest">
+    <h2 id="latest">最近の更新</h2>
+    <div class="two">
+      <div class="panel">
+        <h3>勉強ログ</h3>
+        <ul class="entry">
+          <li><time datetime="2026-10-08">2026.10.08</time>サイトを作りはじめた。まずは需要と供給の復習から。</li>
+          <li><time datetime="2026-10-07">2026.10.07</time>ここにログの一行目が入ります。</li>
+        </ul>
+        <a class="more" href="blog.html">ログをぜんぶ見る</a>
+      </div>
+      <div class="panel">
+        <h3>コラム</h3>
+        <ul class="entry">
+          <li><time datetime="2026-10-08">2026.10.08</time>【準備中】経済学のマンガ・4コマ・小論文を置く予定です。</li>
+          <li><time datetime="2026-10-07">2026.10.07</time>ここに記事のタイトルが入ります。</li>
+        </ul>
+        <a class="more" href="column.html">コラムをぜんぶ見る</a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="note">
+    <h2 id="note">このサイトの使い方</h2>
+    <div class="panel">
+      <p>経済学は、身のまわりの「なぜ？」を考える学問だと思っています。ここでは、<span class="marker">勉強したことを自分の言葉でノートにする</span>ことを大事にしています。まちがいに気づいたら、あとから直していきます。</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 経済学ノート</p>
+</footer>
+
+</body>
+</html>
