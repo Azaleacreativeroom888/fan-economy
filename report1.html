@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>経済学用語辞典 | 経済学ノート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2e8b57;
+  --green-dark:#1f5e3b;
+  --green-pale:#e6f2ea;
+  --paper:#fbfdfb;
+  --grid:#d6e8dc;
+  --ink:#1d2b24;
+  --muted:#5b6e63;
+  --marker:#fff3a8;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{
+  font-family:var(--sans);color:var(--ink);line-height:1.9;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+a{color:var(--green-dark)}
+a:focus-visible,input:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+header{background:var(--green);color:#fff;border-bottom:4px solid var(--green-dark)}
+.bar{max-width:960px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.08em}
+nav ul{list-style:none;display:flex;gap:6px;flex-wrap:wrap}
+nav a{display:block;padding:6px 14px;color:#fff;text-decoration:none;font-weight:500;border-radius:3px;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.18)}
+
+main{max-width:760px;margin:0 auto;padding:36px 20px 56px}
+.back{font-size:.88rem;font-weight:700}
+h1{font-family:var(--serif);font-size:clamp(1.8rem,4.6vw,2.4rem);color:var(--green-dark);letter-spacing:.06em;line-height:1.5;margin-top:10px;display:flex;align-items:center;gap:14px}
+h1 .ico{flex:none;width:40px;height:52px;background:var(--green);color:#fff;border-left:7px solid var(--green-dark);font-size:1.2rem;display:flex;align-items:center;justify-content:center}
+.lead{margin-top:10px;color:var(--muted);font-size:.92rem;line-height:1.8}
+
+.tools{margin-top:22px;background:#fff;border:2px solid var(--green);box-shadow:6px 6px 0 var(--green-pale);padding:16px 18px}
+.tools label{font-weight:700;font-size:.9rem;display:block;margin-bottom:6px}
+.tools input{width:100%;padding:9px 12px;font:inherit;border:1.5px solid var(--green);border-radius:3px;background:var(--paper);color:var(--ink)}
+.rows{margin-top:12px;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.rows a{display:block;min-width:40px;text-align:center;padding:2px 12px;border:1px solid var(--green);border-radius:99px;text-decoration:none;font-weight:700;font-size:.9rem;background:var(--paper)}
+.rows a:hover{background:var(--green-pale)}
+.count{margin-top:10px;font-size:.82rem;color:var(--muted)}
+
+.group{margin-top:34px}
+.group h2{font-family:var(--serif);font-size:1.35rem;color:var(--green-dark);display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.group h2::before{content:"";width:10px;height:1.35rem;background:var(--green)}
+.term{background:#fff;border:1px solid var(--grid);border-left:6px solid var(--green);padding:14px 18px;margin-bottom:12px}
+.term h3{font-family:var(--serif);font-size:1.18rem;line-height:1.5}
+.term h3 small{font-family:var(--sans);font-weight:400;font-size:.8rem;color:var(--muted);margin-left:8px}
+.term p{margin-top:4px;font-size:.95rem}
+.term .ex{font-size:.88rem;color:var(--muted);line-height:1.75}
+.term .ex b{color:var(--green-dark);background:linear-gradient(transparent 55%,var(--marker) 55%)}
+.none{margin-top:30px;text-align:center;color:var(--muted)}
+[hidden]{display:none!important}
+
+footer{background:var(--green-dark);color:#dcefe3;text-align:center;padding:22px 20px;font-size:.85rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">経済学ノート</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html">勉強ログ</a></li>
+        <li><a href="column.html">コラム</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <a class="back" href="column.html">&larr; コラムにもどる</a>
+  <h1><span class="ico" aria-hidden="true">辞</span>経済学用語辞典</h1>
+  <p class="lead">勉強で出てきた用語を、五十音順にまとめた辞典です。まちがいに気づいたら、あとから直します。</p>
+
+  <div class="tools">
+    <label for="q">用語をさがす</label>
+    <input id="q" type="search" placeholder="例：機会費用、きんり" autocomplete="off">
+    <ul class="rows" id="rows" aria-label="行でジャンプ"></ul>
+    <p class="count" id="count" aria-live="polite"></p>
+  </div>
+
+  <div id="list">
+    <section class="group" data-row="あ行">
+      <h2>あ行</h2>
+      <article class="term" data-key="いんふれーしょん インフレ 物価">
+        <h3>インフレーション<small>いんふれーしょん</small></h3>
+        <p>物価が持続的に上がること。同じお金で買えるものが減り、お金の価値が下がる。</p>
+        <p class="ex"><b>例</b> 100円で買えたものが、1年後に105円になっていたら物価が上がっている。</p>
+      </article>
+    </section>
+
+    <section class="group" data-row="か行">
+      <h2>か行</h2>
+      <article class="term" data-key="かわせれーと 為替 円高 円安">
+        <h3>為替レート<small>かわせれーと</small></h3>
+        <p>異なる通貨を交換するときの比率。</p>
+        <p class="ex"><b>例</b> 1ドル＝100円から1ドル＝150円になると、円の価値が下がったので「円安」という。</p>
+      </article>
+      <article class="term" data-key="がいぶせい 外部性 公害">
+        <h3>外部性<small>がいぶせい</small></h3>
+        <p>取引の当事者ではない人に、良い影響や悪い影響が及ぶこと。</p>
+        <p class="ex"><b>例</b> 工場の排煙で周りの人が困るのは悪い外部性。ワクチン接種で周りの感染も減るのは良い外部性。</p>
+      </article>
+      <article class="term" data-key="きかいひよう 機会費用">
+        <h3>機会費用<small>きかいひよう</small></h3>
+        <p>ある選択をしたことで、あきらめた選択肢のうち、いちばん価値が高いものの価値。</p>
+        <p class="ex"><b>例</b> 無料の講演会に2時間参加すると、その2時間でできたアルバイトや勉強をあきらめている。</p>
+      </article>
+      <article class="term" data-key="きょうきゅう 供給">
+        <h3>供給<small>きょうきゅう</small></h3>
+        <p>売り手が、ある価格で売ろうとする量。一般に、価格が高いほど増える。</p>
+      </article>
+      <article class="term" data-key="きんこう 均衡 均衡価格 需要 供給">
+        <h3>均衡<small>きんこう</small></h3>
+        <p>需要量と供給量が等しくなり、価格がそれ以上動かなくなった状態。そのときの価格を均衡価格という。</p>
+        <p class="ex"><b>ポイント</b> グラフでは、需要曲線と供給曲線が交わる点。</p>
+      </article>
+      <article class="term" data-key="きんり 金利 利子 利息">
+        <h3>金利<small>きんり</small></h3>
+        <p>お金を借りたり貸したりするときの対価。元本に対する利息の割合で表す。</p>
+      </article>
+      <article class="term" data-key="げんかいこうよう 限界効用 逓減">
+        <h3>限界効用<small>げんかいこうよう</small></h3>
+        <p>あるものを1単位多く消費したときに、増える満足の大きさ。一般に、消費が増えるほど小さくなる（限界効用逓減）。</p>
+        <p class="ex"><b>例</b> のどがかわいているときの1杯目の水は嬉しいが、5杯目はそれほどでもない。</p>
+      </article>
+      <article class="term" data-key="こうきょうざい 公共財 非競合 非排除">
+        <h3>公共財<small>こうきょうざい</small></h3>
+        <p>お金を払わない人を排除しにくく（非排除性）、誰かが使っても他の人が使える量が減らない（非競合性）財やサービス。</p>
+        <p class="ex"><b>例</b> 国防、灯台。</p>
+      </article>
+      <article class="term" data-key="こくないそうせいさん ジーディーピー GDP 国内総生産">
+        <h3>国内総生産（GDP）<small>こくないそうせいさん</small></h3>
+        <p>一定期間に、国内で新しく生み出された財やサービスの価値（付加価値）の合計。国の経済の大きさを見る目安になる。</p>
+      </article>
+    </section>
+
+    <section class="group" data-row="さ行">
+      <h2>さ行</h2>
+      <article class="term" data-key="しじょうのしっぱい 市場の失敗 外部性 公共財 独占">
+        <h3>市場の失敗<small>しじょうのしっぱい</small></h3>
+        <p>市場に任せるだけでは、資源がうまく配分されない状態。外部性、公共財、独占などが原因になる。</p>
+      </article>
+      <article class="term" data-key="じゅよう 需要">
+        <h3>需要<small>じゅよう</small></h3>
+        <p>買い手が、ある価格で買おうとする量。一般に、価格が高いほど減る。</p>
+      </article>
+      <article class="term" data-key="じゅようのかかくだんりょくせい 需要の価格弾力性 弾力性">
+        <h3>需要の価格弾力性<small>じゅようのかかくだんりょくせい</small></h3>
+        <p>価格が1％変わったときに、需要量が何％変わるかを表す値。大きいほど、価格の変化に敏感な商品。</p>
+      </article>
+    </section>
+
+    <section class="group" data-row="た行">
+      <h2>た行</h2>
+      <article class="term" data-key="ちゅうおうぎんこう 中央銀行 日本銀行 日銀">
+        <h3>中央銀行<small>ちゅうおうぎんこう</small></h3>
+        <p>国の金融の中心になる銀行。紙幣を発行し、金利などの金融政策を行う。日本では日本銀行。</p>
+      </article>
+      <article class="term" data-key="でふれーしょん デフレ 物価">
+        <h3>デフレーション<small>でふれーしょん</small></h3>
+        <p>物価が持続的に下がること。インフレーションの反対。</p>
+      </article>
+      <article class="term" data-key="どくせん 独占 市場の失敗">
+        <h3>独占<small>どくせん</small></h3>
+        <p>市場の売り手が1社だけの状態。競争がないので、価格を高めに決めやすい。</p>
+      </article>
+    </section>
+
+    <section class="group" data-row="は行">
+      <h2>は行</h2>
+      <article class="term" data-key="ひかくゆうい 比較優位 リカード 貿易">
+        <h3>比較優位<small>ひかくゆうい</small></h3>
+        <p>機会費用がより小さいものを作るほうが得意、という考え方。たがいに得意なものに集中して交換すると、双方が得をする。</p>
+        <p class="ex"><b>ポイント</b> 何でも上手な人どうしでも、取引は成り立つ。</p>
+      </article>
+    </section>
+  </div>
+
+  <p class="none" id="none" hidden>見つかりませんでした。ひらがなでも探してみてください。</p>
+</main>
+
+<footer>
+  <p>&copy; 2026 経済学ノート</p>
+</footer>
+
+<script>
+(function(){
+  var q=document.getElementById('q');
+  var count=document.getElementById('count');
+  var none=document.getElementById('none');
+  var rows=document.getElementById('rows');
+  var groups=[].slice.call(document.querySelectorAll('.group'));
+  var terms=[].slice.call(document.querySelectorAll('.term'));
+
+  groups.forEach(function(g,i){
+    g.id='row'+i;
+    var li=document.createElement('li');
+    var a=document.createElement('a');
+    a.href='#row'+i;
+    a.textContent=g.getAttribute('data-row').charAt(0);
+    li.appendChild(a);
+    rows.appendChild(li);
+  });
+
+  function update(){
+    var w=q.value.trim().toLowerCase();
+    var shown=0;
+    terms.forEach(function(t){
+      var text=(t.textContent+' '+t.getAttribute('data-key')).toLowerCase();
+      var ok=!w||text.indexOf(w)!==-1;
+      t.hidden=!ok;
+      if(ok)shown++;
+    });
+    groups.forEach(function(g){
+      g.hidden=!g.querySelector('.term:not([hidden])');
+    });
+    none.hidden=shown!==0;
+    count.textContent=w?shown+'件見つかりました':'全'+terms.length+'語';
+  }
+  q.addEventListener('input',update);
+  update();
+})();
+</script>
+
+</body>
+</html>
