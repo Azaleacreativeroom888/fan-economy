@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>コラム | 経済学ノート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2e8b57;
+  --green-dark:#1f5e3b;
+  --green-pale:#e6f2ea;
+  --paper:#fbfdfb;
+  --grid:#d6e8dc;
+  --ink:#1d2b24;
+  --muted:#5b6e63;
+  --marker:#fff3a8;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);color:var(--ink);line-height:1.9;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+a{color:var(--green-dark)}
+a:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+header{background:var(--green);color:#fff;border-bottom:4px solid var(--green-dark)}
+.bar{max-width:960px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.08em}
+nav ul{list-style:none;display:flex;gap:6px;flex-wrap:wrap}
+nav a{display:block;padding:6px 14px;color:#fff;text-decoration:none;font-weight:500;border-radius:3px;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.18)}
+nav a[aria-current="page"]{background:#fff;color:var(--green-dark)}
+
+main{max-width:960px;margin:0 auto;padding:44px 20px 56px}
+h1{font-family:var(--serif);font-size:clamp(1.7rem,4.2vw,2.2rem);color:var(--green-dark);letter-spacing:.05em;line-height:1.5}
+.lead{margin-top:10px;color:var(--muted);font-size:.92rem;line-height:1.8}
+.jump{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;list-style:none}
+.jump a{display:inline-block;padding:3px 14px;border:1px solid var(--green);border-radius:99px;font-size:.85rem;text-decoration:none;background:#fff}
+.jump a:hover{background:var(--green-pale)}
+
+section{margin-top:48px}
+h2{font-family:var(--serif);font-size:1.5rem;color:var(--green-dark);display:flex;align-items:center;gap:12px;margin-bottom:6px}
+h2::before{content:"";width:10px;height:1.5rem;background:var(--green)}
+.sub{color:var(--muted);font-size:.9rem;margin-bottom:18px}
+.marker{background:linear-gradient(transparent 55%,var(--marker) 55%)}
+
+/* 4koma */
+.komas{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.koma{background:#fff;border:2px solid var(--green);box-shadow:5px 5px 0 var(--green-pale);padding:12px}
+.frames{display:grid;grid-template-rows:repeat(4,1fr);gap:6px}
+.frames div{aspect-ratio:16/7;border:1.5px solid var(--ink);background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted)}
+.koma h3{font-family:var(--serif);font-size:1.02rem;margin-top:10px}
+.koma time{font-size:.8rem;color:var(--muted)}
+
+/* illust */
+.illusts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.illust{background:#fff;border:1px solid var(--green);padding:10px}
+.illust .img{aspect-ratio:1/1;background:var(--green-pale);border:1px dashed var(--green);display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--muted)}
+.illust p{font-size:.88rem;margin-top:8px;line-height:1.6}
+
+/* essays */
+.essay-list{list-style:none;display:grid;gap:12px}
+.essay-list a{display:block;background:#fff;border:1px solid var(--grid);border-left:6px solid var(--green);padding:12px 16px;text-decoration:none;color:var(--ink)}
+.essay-list a:hover{background:var(--green-pale)}
+.essay-list .t{font-family:var(--serif);font-weight:700;font-size:1.05rem;display:block}
+.essay-list .d{font-size:.8rem;color:var(--muted)}
+article{margin-top:26px;background:#fff;border:2px solid var(--green);padding:28px clamp(18px,4vw,36px);box-shadow:6px 6px 0 var(--green-pale)}
+article h3{font-family:var(--serif);font-size:1.4rem;color:var(--green-dark);line-height:1.6}
+article .meta{font-size:.82rem;color:var(--muted);margin:4px 0 14px}
+article h4{font-family:var(--serif);font-size:1.02rem;margin:20px 0 4px;color:var(--green-dark);border-bottom:1px dashed var(--green);display:inline-block}
+article p{font-size:.98rem}
+
+.dict{display:flex;align-items:center;gap:20px;background:var(--green);color:#fff;text-decoration:none;padding:22px 26px;border:2px solid var(--green-dark);box-shadow:6px 6px 0 var(--green-pale);margin-top:36px}
+.dict:hover{background:var(--green-dark)}
+.dict:focus-visible{outline:3px solid var(--marker);outline-offset:3px}
+.dict .ico{flex:none;width:56px;height:72px;background:#fff;color:var(--green-dark);border-left:8px solid var(--green-dark);font-family:var(--serif);font-weight:700;font-size:1.5rem;display:flex;align-items:center;justify-content:center}
+.dict .tt{font-family:var(--serif);font-size:1.35rem;font-weight:700;display:block;line-height:1.5}
+.dict .ds{font-size:.9rem;display:block;line-height:1.7}
+.dict .go{margin-left:auto;font-weight:700;white-space:nowrap}
+@media (max-width:600px){.dict{padding:18px 16px;gap:14px}.dict .go{display:none}}
+
+footer{background:var(--green-dark);color:#dcefe3;text-align:center;padding:22px 20px;font-size:.85rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">経済学ノート</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html">勉強ログ</a></li>
+        <li><a href="column.html" aria-current="page">コラム</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>コラム</h1>
+  <p class="lead">経済学にまつわるマンガ・イラスト・4コマと、短い小論文を置いています。</p>
+  <ul class="jump">
+    <li><a href="#manga">4コマ・マンガ</a></li>
+    <li><a href="#illust">イラスト</a></li>
+    <li><a href="#essay">小論文</a></li>
+  </ul>
+
+  <section id="manga" aria-labelledby="h-manga">
+    <h2 id="h-manga">4コマ・マンガ</h2>
+    <p class="sub">経済学の用語を、マンガでかんたんに。</p>
+    <div class="komas">
+      <div class="koma">
+        <div class="frames" aria-hidden="true"><div>1コマ目</div><div>2コマ目</div><div>3コマ目</div><div>4コマ目</div></div>
+        <h3>機会費用ってなに？</h3>
+        <time datetime="2026-10-08">2026.10.08</time>
+      </div>
+      <div class="koma">
+        <div class="frames" aria-hidden="true"><div>1コマ目</div><div>2コマ目</div><div>3コマ目</div><div>4コマ目</div></div>
+        <h3>需要と供給のおはなし</h3>
+        <time datetime="2026-10-07">2026.10.07</time>
+      </div>
+    </div>
+  </section>
+
+  <section id="illust" aria-labelledby="h-illust">
+    <h2 id="h-illust">イラスト</h2>
+    <p class="sub">ノートに描いた図やイラストです。</p>
+    <div class="illusts">
+      <figure class="illust"><div class="img">画像</div><p>需要・供給曲線のイラスト</p></figure>
+      <figure class="illust"><div class="img">画像</div><p>GDPをケーキにたとえた絵</p></figure>
+      <figure class="illust"><div class="img">画像</div><p>お金のめぐりの図</p></figure>
+    </div>
+  </section>
+
+  <section id="essay" aria-labelledby="h-essay">
+    <h2 id="h-essay">小論文</h2>
+    <p class="sub">序論・本論・結論の形で、短くまとめます。</p>
+    <ul class="essay-list">
+      <li><a href="#essay1"><span class="t">「無料」は本当に無料なのか　機会費用から考える</span><span class="d">2026.10.08</span></a></li>
+      <li><a href="#essay2"><span class="t">ここに次の小論文のタイトルが入ります</span><span class="d">準備中</span></a></li>
+    </ul>
+
+    <article id="essay1">
+      <h3>「無料」は本当に無料なのか　機会費用から考える</h3>
+      <p class="meta"><time datetime="2026-10-08">2026.10.08</time>　サンプル記事</p>
+
+      <h4>序論</h4>
+      <p>「無料」と書かれたものを見ると、得をした気持ちになる。けれど経済学では、お金を払わなくても何かを手放している、と考える。その考え方が<span class="marker">機会費用</span>である。</p>
+
+      <h4>本論</h4>
+      <p>機会費用とは、ある選択をしたことで、あきらめた選択肢のうちいちばん価値が高いものの価値のことだ。たとえば、無料の講演会に2時間参加するとする。参加費はかからないが、その2時間でアルバイトをすれば得られたはずの収入や、勉強にあてられた時間は手放している。これが機会費用である。</p>
+      <p>このように考えると、お金の支払いだけを見て「安い」「高い」と決めるのは不十分だとわかる。時間や労力にも、かならず代わりの使い道があるからだ。</p>
+
+      <h4>結論</h4>
+      <p>「無料」でも、時間という資源は使っている。何かを選ぶときは、価格だけでなく「それを選ぶ代わりに何をあきらめるのか」を考えたい。これが、経済学の考え方の入り口だと思う。</p>
+    </article>
+  </section>
+  <a class="dict" href="report1.html">
+    <span class="ico" aria-hidden="true">辞</span>
+    <span>
+      <span class="tt">経済学用語辞典</span>
+      <span class="ds">勉強で出てきた用語を、自分の言葉でまとめた辞典です。</span>
+    </span>
+    <span class="go" aria-hidden="true">開く &rarr;</span>
+  </a>
+</main>
+
+<footer>
+  <p>&copy; 2026 経済学ノート</p>
+</footer>
+
+</body>
+</html>
