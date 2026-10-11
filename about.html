@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>このサイトについて | 経済学ノート</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#2e8b57;
+  --green-dark:#1f5e3b;
+  --green-pale:#e6f2ea;
+  --paper:#fbfdfb;
+  --grid:#d6e8dc;
+  --ink:#1d2b24;
+  --muted:#5b6e63;
+  --marker:#fff3a8;
+  --err:#b3261e;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);color:var(--ink);line-height:1.9;
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+a{color:var(--green-dark)}
+a:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--green);outline-offset:3px}
+
+header{background:var(--green);color:#fff;border-bottom:4px solid var(--green-dark)}
+.bar{max-width:960px;margin:0 auto;padding:14px 20px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px}
+.logo{font-family:var(--serif);font-weight:700;font-size:1.3rem;color:#fff;text-decoration:none;letter-spacing:.08em}
+nav ul{list-style:none;display:flex;gap:6px;flex-wrap:wrap}
+nav a{display:block;padding:6px 14px;color:#fff;text-decoration:none;font-weight:500;border-radius:3px;font-size:.95rem}
+nav a:hover{background:rgba(255,255,255,.18)}
+nav a[aria-current="page"]{background:#fff;color:var(--green-dark)}
+
+main{max-width:820px;margin:0 auto;padding:44px 20px 56px}
+h1{font-family:var(--serif);font-size:clamp(1.7rem,4.2vw,2.2rem);color:var(--green-dark);letter-spacing:.05em;line-height:1.5}
+.lead{margin-top:10px;color:var(--muted);font-size:.92rem;line-height:1.8}
+.marker{background:linear-gradient(transparent 55%,var(--marker) 55%)}
+
+section{margin-top:44px}
+h2{font-family:var(--serif);font-size:1.45rem;color:var(--green-dark);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+h2::before{content:"";width:10px;height:1.45rem;background:var(--green)}
+h3.label{font-family:var(--serif);font-size:1rem;color:var(--muted);margin:22px 0 10px;display:flex;align-items:center;gap:12px}
+h3.label::after{content:"";flex:1;height:1px;background:var(--grid)}
+
+.panel{background:#fff;border:2px solid var(--green);box-shadow:6px 6px 0 var(--green-pale);padding:22px 26px}
+.panel p+p{margin-top:10px}
+.panel ul{margin:10px 0 0 1.3em}
+
+/* link cards */
+.links{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.link{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--grid);border-left:6px solid var(--green);padding:12px 14px}
+.link:hover{background:var(--green-pale)}
+.link .ic{flex:none;width:42px;height:42px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:var(--green-pale);border:1px solid var(--grid)}
+.link .tx{flex:1;min-width:0}
+.link .nm{display:block;font-weight:700;font-size:.95rem;color:var(--green-dark);line-height:1.5}
+.link .ds{display:block;font-size:.8rem;color:var(--muted);line-height:1.5}
+.link .ar{flex:none;color:var(--green);font-size:1.2rem;font-weight:700}
+
+/* form */
+.form-intro{font-size:.92rem;color:var(--muted);margin-bottom:18px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-weight:700;font-size:.9rem;margin-bottom:4px}
+.req{color:var(--err);font-style:normal}
+.fg input,.fg textarea{width:100%;padding:10px 12px;font:inherit;border:1.5px solid var(--green);border-radius:3px;background:var(--paper);color:var(--ink)}
+.fg textarea{min-height:150px;resize:vertical}
+.fe{display:block;font-size:.82rem;color:var(--err);margin-top:3px}
+.send{display:inline-block;padding:10px 28px;border:2px solid var(--green);background:var(--green);color:#fff;font:inherit;font-weight:700;border-radius:3px;cursor:pointer}
+.send:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.send:disabled{opacity:.5;cursor:not-allowed}
+.ok{background:var(--green-pale);border:1px solid var(--green);padding:12px 16px;margin-bottom:16px;font-weight:700;color:var(--green-dark)}
+.ng{background:#fdecea;border:1px solid var(--err);padding:12px 16px;margin-bottom:16px;color:var(--err);font-size:.9rem}
+[hidden]{display:none!important}
+
+.back{display:inline-block;margin-top:34px;font-weight:700;font-size:.92rem}
+
+footer{background:var(--green-dark);color:#dcefe3;padding:24px 20px;font-size:.78rem;line-height:1.9}
+footer .in{max-width:820px;margin:0 auto;text-align:center}
+footer p+p{margin-top:6px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">経済学ノート</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="blog.html">勉強ログ</a></li>
+        <li><a href="column.html">コラム</a></li>
+        <li><a href="about.html" aria-current="page">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>このサイトについて</h1>
+  <p class="lead">サイトの紹介、リンク、お問い合わせフォームをまとめたページです。</p>
+
+  <section aria-labelledby="h-site">
+    <h2 id="h-site">経済学ノートとは</h2>
+    <div class="panel">
+      <p>経済学を勉強している学生の、記録サイトです。<span class="marker">勉強したことを自分の言葉でノートにする</span>ことを大事にしています。</p>
+      <ul>
+        <li><a href="blog.html">勉強ログ</a>：その日に勉強したことを短く記録</li>
+        <li><a href="column.html">コラム</a>：マンガ・イラスト・4コマと、短い小論文</li>
+        <li><a href="report1.html">経済学用語辞典</a>：用語を自分の言葉でまとめた辞典</li>
+      </ul>
+      <p>運営：Azalea72</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-links">
+    <h2 id="h-links">リンク</h2>
+
+    <h3 class="label">漫画・イラスト掲載サイト</h3>
+    <div class="links">
+      <a class="link" href="https://rookie.shonenjump.com/users/14728546961183734555" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">📚</span>
+        <span class="tx"><span class="nm">ジャンプルーキー</span><span class="ds">オリジナル漫画を掲載中</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="https://www.pixiv.net/users/105728284" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">🎨</span>
+        <span class="tx"><span class="nm">Pixiv</span><span class="ds">二次創作はこちらに掲載</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+    </div>
+
+    <h3 class="label">SNS・その他</h3>
+    <div class="links">
+      <a class="link" href="https://bsky.app/profile/azaleaazalea88.bsky.social" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">🦋</span>
+        <span class="tx"><span class="nm">Bluesky</span><span class="ds">近況・作品のお知らせ</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="https://www.youtube.com/@LilyPopins0512" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">🎬</span>
+        <span class="tx"><span class="nm">YouTube（リリポピ）</span><span class="ds">動画チャンネル</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="https://lilipopi.github.io/lilypopins/" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">🌸</span>
+        <span class="tx"><span class="nm">リリポピのホームページ</span><span class="ds">別サイト</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+    </div>
+
+    <h3 class="label">Azalea72のホームページ</h3>
+    <div class="links">
+      <a class="link" href="https://azaleacreativeroom888.github.io/storyreviewazalea/" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">📖</span>
+        <span class="tx"><span class="nm">書評サイト</span><span class="ds">本・アニメ・映画・ゲーム・小説の備忘録</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="https://azaleacreativeroom888.github.io/fan-english/" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">🍔</span>
+        <span class="tx"><span class="nm">英語サイト（English Site）</span><span class="ds">英語話者と英語学習者に向けたサイト</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+      <a class="link" href="https://azaleacreativeroom888.github.io/fan-watercolor/" target="_blank" rel="noopener">
+        <span class="ic" aria-hidden="true">☁️</span>
+        <span class="tx"><span class="nm">水彩画サイト</span><span class="ds">水彩画掲載</span></span>
+        <span class="ar" aria-hidden="true">›</span>
+      </a>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-contact">
+    <h2 id="h-contact">お問い合わせフォーム</h2>
+    <div class="panel">
+      <p class="form-intro">ご質問・ご感想などはこちらからどうぞ。Gmailで受け取り、返信いたします。</p>
+
+      <div data-fs-success class="ok" hidden>メッセージを送信しました。ありがとうございます！</div>
+      <div data-fs-error class="ng" hidden></div>
+
+      <form id="contact-form" action="https://formspree.io/f/maqvpvoz" method="POST">
+        <div class="fg">
+          <label for="name">お名前</label>
+          <input type="text" id="name" name="name" placeholder="お名前（ニックネームでも大丈夫です）" autocomplete="name">
+        </div>
+        <div class="fg">
+          <label for="email">メールアドレス <em class="req">*</em></label>
+          <input type="email" id="email" name="email" data-fs-field placeholder="example@email.com" autocomplete="email" required>
+          <span data-fs-error="email" class="fe"></span>
+        </div>
+        <div class="fg">
+          <label for="message">メッセージ <em class="req">*</em></label>
+          <textarea id="message" name="message" data-fs-field placeholder="メッセージを入力してください…" rows="6" required></textarea>
+          <span data-fs-error="message" class="fe"></span>
+        </div>
+        <button class="send" type="submit" data-fs-submit-btn>送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <a class="back" href="index.html">&larr; ホームに戻る</a>
+</main>
+
+<footer>
+  <div class="in">
+    <p>当サイトに掲載されている画像・文章・作品について、AI学習への利用、トレース（トレパク）、無断転載・転載、二次利用を禁止します。スクリーンショットの転載・無断引用はご遠慮ください。</p>
+    <p>Please refrain from using any images, text, or works on this website for AI training, tracing, unauthorized reproduction, redistribution, or secondary use.</p>
+    <p>&copy; 2026 経済学ノート</p>
+  </div>
+</footer>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'maqvpvoz' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+</body>
+</html>
